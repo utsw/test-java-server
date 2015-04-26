@@ -4,6 +4,7 @@ import com.google.inject.Injector;
 import com.google.inject.servlet.GuiceFilter;
 import com.google.inject.servlet.ServletModule;
 import com.squarespace.jersey2.guice.BootstrapUtils;
+import com.wordpress.baddestcoder.api.BaseResponse;
 import com.wordpress.baddestcoder.guice.GuiceApplication;
 import com.wordpress.baddestcoder.guice.MyModule;
 import org.eclipse.jetty.server.Server;
@@ -57,7 +58,7 @@ public class ServerBuilder {
         jettyServer.setHandler(context);
 
         jerseyServlet.setInitOrder(0);
-        jerseyServlet.setInitParameter(ServerProperties.PROVIDER_PACKAGES, "com.wordpress.baddestcoder.api");
+        jerseyServlet.setInitParameter(ServerProperties.PROVIDER_PACKAGES, BaseResponse.class.getPackage().getName());
 
         return jettyServer;
     }
