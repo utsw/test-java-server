@@ -2,13 +2,12 @@ package com.wordpress.baddestcoder.api;
 
 import com.wordpress.baddestcoder.store.Store;
 
+import javax.inject.Inject;
+
 /**
- * Created by xpan on 4/24/15.
+ * Created by xpan on 4/26/15.
  */
 public class BaseResponse {
-    final Store store;
-
-    public BaseResponse(Store store) {
-        this.store = store;
-    }
+    @Inject
+    Store store;
 }
