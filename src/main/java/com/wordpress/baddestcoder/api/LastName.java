@@ -13,8 +13,6 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/last-name")
 public class LastName extends BaseResponse {
-    //@Inject
-    //private Store store;
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
