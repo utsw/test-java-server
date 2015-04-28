@@ -1,5 +1,6 @@
 package com.wordpress.baddestcoder.store;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -8,7 +9,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Getter
+@AllArgsConstructor
 public class Store {
-    final String firstName = "Xiaosong";
-    final String lastName = "Pan";
+    final String firstName;
+    final String lastName;
 }

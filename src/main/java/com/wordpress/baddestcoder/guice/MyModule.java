@@ -17,6 +17,6 @@ public class MyModule extends AbstractModule {
 
     @Provides
     public Store provideContent() {
-        return new Store();
+        return new Store("Xiaosong", "Pan");
     }
 }
