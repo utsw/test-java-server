@@ -17,6 +17,6 @@ public class LastName extends BaseResponse {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String test() {
-        return store.getLastName();
+        return store.getLastName() + store.toString();
     }
 }
