@@ -18,6 +18,6 @@ public class FirstName extends BaseResponse {
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String test() {
-        return store.getFirstName();
+        return store.getFirstName() + store.toString();
     }
 }
