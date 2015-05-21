@@ -9,6 +9,6 @@ import javax.inject.Named;
  * Created by xpan on 4/26/15.
  */
 public class BaseResponse {
-    @Inject @Named("Not Real")
+    @Inject //@Named("Not Real")
     Store store;
 }

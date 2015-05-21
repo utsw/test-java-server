@@ -1,5 +1,6 @@
 package com.wordpress.baddestcoder.api;
 
+import com.wordpress.baddestcoder.annotation.Notice;
 import com.wordpress.baddestcoder.store.Store;
 
 import javax.inject.Inject;
@@ -16,6 +17,7 @@ public class LastName extends BaseResponse {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
+    @Notice
     public String test() {
         return store.getLastName() + store.toString();
     }

@@ -1,12 +1,16 @@
 package com.wordpress.baddestcoder.guice;
 
-import com.google.inject.AbstractModule;
-import com.google.inject.Provides;
-import com.google.inject.Scopes;
+import com.google.inject.*;
+import com.google.inject.matcher.Matchers;
+import com.wordpress.baddestcoder.annotation.Notice;
 import com.wordpress.baddestcoder.api.BaseResponse;
+import com.wordpress.baddestcoder.api.FirstName;
+import com.wordpress.baddestcoder.api.LastName;
+import com.wordpress.baddestcoder.interceptor.NoticeInterceptor;
 import com.wordpress.baddestcoder.store.Store;
 
 import javax.inject.Named;
+import javax.inject.Provider;
 import javax.inject.Singleton;
 
 /**
@@ -16,9 +20,15 @@ public class MyModule extends AbstractModule {
 
     @Override
     protected void configure() {
-        //bind(BaseResponse.class).in(Scopes.SINGLETON);
+        bind(FirstName.class);
+        bind(LastName.class);
+        bind(Store.class).toProvider(StoreProvider.class).in(Scopes.SINGLETON);
+        bindInterceptor(Matchers.any(), Matchers.annotatedWith(Notice.class), new NoticeInterceptor());
+
     }
 
+
+    /*
     @Provides @Named("Really")
     @Singleton
     public Store provideContent() {
@@ -29,5 +39,14 @@ public class MyModule extends AbstractModule {
     @Singleton
     public Store pprovideContent() {
         return new Store("AAA", "BB");
+    }*/
+
+
+    static class StoreProvider implements Provider<Store> {
+
+        @Override
+        public Store get() {
+            return new Store("Xiaosong", "Pan");
+        }
     }
 }
