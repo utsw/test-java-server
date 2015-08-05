@@ -9,9 +9,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-/**
- * Created by xpan on 4/26/15.
- */
+
 @Path("/last-name")
 public class LastName extends BaseResponse {
 
@@ -19,6 +17,8 @@ public class LastName extends BaseResponse {
     @Produces(MediaType.TEXT_PLAIN)
     @Notice
     public String test() {
+        System.out.println("Store is null? " + (store == null));
+        //return "yes";
         return store.getLastName() + store.toString();
     }
 }
